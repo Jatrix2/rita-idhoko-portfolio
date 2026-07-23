@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rita Idhoko — Creative VA & Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #21295c;
+    --navy-deep: #171d3f;
+    --navy-circle: #2b3570;
+    --light-bg: #f5f8fa;
+    --white: #ffffff;
+    --teal: #1c7293;
+    --gold: #c9973b;
+    --gold-soft: #ddb567;
+    --body-gray: #5c6470;
+    --subtitle-blue: #bfd8e8;
+    --muted-caption: #8fafc4;
+    --border-soft: #e4eef4;
+    --shadow: 0 10px 30px rgba(23, 29, 66, 0.08);
+    --radius: 14px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body{
+    margin:0;
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+    background: var(--light-bg);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  h1,h2,h3,h4{
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    line-height: 1.15;
+  }
+  p{ margin:0; }
+  ul{ margin:0; padding:0; list-style:none; }
+  a{ color: inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .eyebrow{
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+    display:block;
+  }
+  .eyebrow.on-dark{ color: var(--gold); }
+
+  .section{
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 96px 6% 72px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section.dark{
+    background: var(--navy);
+    color: var(--white);
+  }
+  .section.dark .footer-credit{ color: var(--muted-caption); }
+  .section-inner{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .section-desc{
+    color: var(--body-gray);
+    font-size: 1rem;
+    margin-top: 14px;
+    max-width: 640px;
+    line-height:1.6;
+  }
+  .section.dark .section-desc{ color: var(--subtitle-blue); }
+
+  .heading-lg{
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .section.dark .heading-lg{ color: var(--white); }
+
+  .decor-circle{
+    position:absolute;
+    border-radius: 50%;
+    background: var(--navy-circle);
+    opacity: 0.55;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background: rgba(33, 41, 92, 0.97);
+    backdrop-filter: blur(6px);
+    color: var(--white);
+    padding: 14px 6%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+  }
+  .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .nav-toggle{
+    background:none;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 8px;
+    width: 40px;
+    height: 36px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    cursor:pointer;
+  }
+  .nav-toggle span{
+    width: 18px;
+    height: 2px;
+    background: var(--white);
+    display:block;
+  }
+  nav.nav-links{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: min(78vw, 320px);
+    max-width: 100vw;
+    background: var(--navy-deep);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 96px 28px 32px;
+    display:flex;
+    flex-direction:column;
+    gap: 22px;
+    z-index: 99;
+    overflow-y: auto;
+  }
+  nav.nav-links.open{ transform: translateX(0); }
+  nav.nav-links a{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--subtitle-blue);
+  }
+  nav.nav-links a:hover{ color: var(--gold-soft); }
+
+  @media(min-width: 900px){
+    .nav-toggle{ display:none; }
+    nav.nav-links{
+      position: static;
+      transform:none;
+      width:auto;
+      height:auto;
+      background:none;
+      flex-direction:row;
+      padding:0;
+      gap: 28px;
+      align-items:center;
+    }
+    nav.nav-links a{ font-size: 0.92rem; color: var(--subtitle-blue); }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    justify-content:center;
+    align-items:flex-start;
+    text-align:left;
+  }
+  .hero-title{
+    font-size: clamp(2.6rem, 12vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    color: var(--white);
+  }
+  .hero-roles{
+    margin-top: 20px;
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
+    color: var(--subtitle-blue);
+    line-height: 1.7;
+  }
+  .hero-roles span.dot{ color: var(--gold); margin: 0 10px; }
+  .hero-tagline{
+    margin-top: 28px;
+    font-style: italic;
+    color: var(--muted-caption);
+    max-width: 520px;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .hero-location{
+    margin-top: 48px;
+    color: var(--muted-caption);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ---------- STAT CARDS (About) ---------- */
+  .about-grid{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items:start;
+  }
+  .about-body p{
+    color: var(--body-gray);
+    line-height: 1.75;
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+  .stat-list{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .stat-card{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 18px;
+  }
+  .stat-num{
+    font-family:'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    color: var(--teal);
+    display:block;
+  }
+  .stat-label{
+    font-size: 0.82rem;
+    color: var(--body-gray);
+    margin-top: 4px;
+    display:block;
+  }
+  @media(min-width: 900px){
+    .about-grid{ grid-template-columns: 1.3fr 1fr; gap: 60px; }
+    .stat-list{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- CARD GRIDS (services etc) ---------- */
+  .card-grid{
+    margin-top: 44px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media(min-width: 640px){ .card-grid{ grid-template-columns: 1fr 1fr; } }
+  @media(min-width: 1024px){ .card-grid.cols-4{ grid-template-columns: repeat(4, 1fr); } }
+
+  .info-card{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+  }
+  .icon-badge{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 18px;
+  }
+  .icon-badge.gold{ background: var(--gold); }
+  .icon-badge svg{ width: 22px; height: 22px; stroke: var(--white); }
+  .icon-badge.gold svg{ stroke: var(--navy-deep); }
+  .info-card h3{
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .info-card ul li{
+    color: var(--body-gray);
+    font-size: 0.94rem;
+    padding: 6px 0;
+    position: relative;
+    padding-left: 16px;
+  }
+  .info-card ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top: 15px;
+    width:5px; height:5px;
+    border-radius:50%;
+    background: var(--teal);
+  }
+
+  /* ---------- IMAGE PLACEHOLDER BOXES ---------- */
+  .gallery-grid{
+    margin-top: 44px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  @media(min-width: 720px){ .gallery-grid{ grid-template-columns: repeat(3, 1fr); } }
+
+  .gallery-item{
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .gallery-item:hover{ transform: translateY(-4px); }
+  .img-box{
+    aspect-ratio: 4/5;
+    width:100%;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.06) 25%, transparent 25%) 0 0/16px 16px,
+      linear-gradient(315deg, rgba(255,255,255,0.06) 25%, transparent 25%) 0 0/16px 16px,
+      #2e3a70;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: rgba(255,255,255,0.75);
+    overflow: hidden;
+  }
+  .img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display:block;
+  }
+  .img-box svg{ width: 34px; height:34px; opacity: 0.8; }
+  .doc-snapshot{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+    display:block;
+    box-shadow: 0 4px 14px rgba(23,29,66,0.06);
+    cursor: pointer;
+  }
+  .gallery-caption{
+    padding: 16px 18px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--navy);
+    text-align:center;
+  }
+
+  /* Lightbox */
+  .lightbox-overlay{
+    position: fixed;
+    inset:0;
+    background: rgba(15, 18, 40, 0.88);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index: 1000;
+    padding: 24px;
+  }
+  .lightbox-overlay.active{ display:flex; }
+  .lightbox-box{
+    width: min(560px, 92vw);
+    aspect-ratio: 4/5;
+    max-height: 82vh;
+    background: #2e3a70;
+    border-radius: 16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap: 18px;
+    color: var(--subtitle-blue);
+    position:relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-box svg{ width: 56px; height:56px; opacity:0.8; }
+  .lightbox-caption{
+    font-family:'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight:700;
+    color: var(--white);
+    padding: 0 24px;
+    text-align:center;
+  }
+  .lightbox-hint{
+    font-size: 0.8rem;
+    color: var(--muted-caption);
+    padding: 0 24px;
+    text-align:center;
+  }
+  .lightbox-box.has-img{
+    background: #10142c;
+  }
+  .lightbox-box img.lightbox-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 16px;
+  }
+  .lightbox-close{
+    position:absolute;
+    top: -44px;
+    right: 0;
+    width: 34px; height:34px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 1.1rem;
+    cursor:pointer;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  /* ---------- Featured project layout ---------- */
+  .project-head{
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .project-head .icon-badge{ margin:0; flex-shrink:0; }
+  .project-head h2{ font-size: clamp(1.5rem, 5vw, 2.1rem); }
+
+  .two-col{
+    margin-top: 36px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  @media(min-width: 860px){ .two-col{ grid-template-columns: 1fr 1fr; } }
+
+  .doc-preview{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+    min-height: 260px;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    color: var(--body-gray);
+    font-size: 0.85rem;
+  }
+  .doc-preview .doc-title{
+    font-family:'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.05rem;
+  }
+  .doc-preview .table-scroll{
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .doc-preview table{
+    width:100%;
+    min-width: 380px;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+  }
+  .doc-preview td, .doc-preview th{
+    border: 1px solid var(--border-soft);
+    padding: 5px 6px;
+    text-align:left;
+  }
+  .doc-preview th{ background: var(--light-bg); }
+  .doc-note{
+    font-style:italic;
+    font-size: 0.78rem;
+    color: var(--muted-caption);
+    margin-top: auto;
+  }
+
+  .plain-card{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 24px;
+  }
+  .plain-card h4{
+    font-size: 1.05rem;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .plain-card ul li{
+    color: var(--body-gray);
+    font-size: 0.94rem;
+    padding: 6px 0 6px 16px;
+    position:relative;
+  }
+  .plain-card ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top:14px;
+    width:5px;height:5px;border-radius:50%;
+    background: var(--teal);
+  }
+
+  .strip{
+    margin-top: 26px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px 26px;
+  }
+  @media(min-width: 720px){ .strip{ grid-template-columns: 1fr 1fr; } }
+  .strip .strip-label{
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform:uppercase;
+    color: var(--gold);
+    font-weight:700;
+    margin-bottom: 8px;
+    display:block;
+  }
+  .strip p{ font-size: 0.95rem; color: var(--subtitle-blue); line-height:1.5; }
+
+  /* ---------- Skills page ---------- */
+  .skills-grid{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media(min-width: 900px){ .skills-grid{ grid-template-columns: 1fr 1fr; } }
+  .skills-two{
+    columns: 1;
+  }
+  @media(min-width:520px){ .skills-two{ columns:2; column-gap: 20px; } }
+  .skills-two li{
+    color: var(--body-gray);
+    font-size: 0.95rem;
+    padding: 7px 0;
+    break-inside: avoid;
+  }
+  .tools-card{
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 26px 24px;
+  }
+  .tools-card h4{ color: var(--gold); font-size:1.05rem; margin-bottom:14px; }
+  .tools-card ul li{ color: var(--subtitle-blue); padding: 6px 0; font-size: 0.95rem; }
+
+  /* ---------- Education tags ---------- */
+  .edu-cards{
+    margin-top: 30px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media(min-width: 720px){ .edu-cards{ grid-template-columns: 1fr 1fr; } }
+  .edu-card{
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+    display:flex;
+    align-items:center;
+    gap: 16px;
+  }
+  .edu-card .icon-badge{ margin:0; }
+  .edu-card h4{ font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
+  .edu-card p{ font-size: 0.88rem; color: var(--body-gray); }
+  .tag-grid{
+    margin-top: 22px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media(min-width: 720px){ .tag-grid{ grid-template-columns: repeat(3, 1fr); } }
+  .tag-pill{
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    color: var(--navy);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .tag-pill .dot{
+    width:10px;height:10px;border-radius:50%;
+    background: var(--navy);
+    flex-shrink:0;
+  }
+
+  /* ---------- Why work with me ---------- */
+  .why-grid{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media(min-width: 720px){ .why-grid{ grid-template-columns: 1fr 1fr; } }
+  .why-item{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px 22px;
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    font-size: 1rem;
+    color: var(--white);
+  }
+  .why-item .icon-badge{ background: var(--gold); margin:0; flex-shrink:0; }
+  .why-item .icon-badge svg{ stroke: var(--navy-deep); }
+
+  /* ---------- Contact ---------- */
+  .contact-list{
+    margin-top: 30px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media(min-width: 640px){ .contact-list{ grid-template-columns: 1fr 1fr; } }
+  .contact-list li{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    color: var(--subtitle-blue);
+    font-size: 0.98rem;
+  }
+  .contact-list li .dot{
+    width:9px;height:9px;border-radius:50%;
+    background: var(--white);
+    flex-shrink:0;
+  }
+  .contact-meta{
+    margin-top: 40px;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 24px;
+    font-size: 0.92rem;
+    color: var(--subtitle-blue);
+  }
+  .contact-meta a{ display:flex; align-items:center; gap:8px; }
+  .contact-meta svg{ width:16px; height:16px; stroke: var(--gold); }
+  .quote{
+    margin-top: 44px;
+    font-family:'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 3.2vw, 1.3rem);
+    color: var(--white);
+    max-width: 620px;
+  }
+
+  /* ---------- Form section ---------- */
+  .form-section{
+    min-height: auto;
+    padding: 64px 6%;
+    background: var(--white);
+  }
+  .form-wrap{
+    max-width: 720px;
+    margin: 36px auto 0;
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: var(--shadow);
+    background: var(--light-bg);
+  }
+  .form-wrap iframe{
+    width: 100%;
+    height: 920px;
+    border: none;
+    display:block;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    padding: 26px 6%;
+    background: var(--navy-deep);
+    color: var(--muted-caption);
+    text-align:center;
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="brand">RITA IDHOKO</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="section dark hero">
+  <div class="decor-circle" style="width:420px; height:420px; top:-120px; right:-140px;"></div>
+  <div class="decor-circle" style="width:280px; height:280px; bottom:-100px; right:-60px; opacity:0.35;"></div>
+  <div class="section-inner">
+    <h1 class="hero-title">RITA<br>IDHOKO</h1>
+    <p class="hero-roles">Creative Virtual Assistant <span class="dot">•</span> Digital Operations Specialist <span class="dot">•</span> Graphic Designer</p>
+    <p class="hero-tagline">Delivering organized, efficient, and visually compelling support that helps businesses, educators, and organizations thrive.</p>
+    <p class="hero-location">ABUJA, NIGERIA &nbsp;|&nbsp; PORTFOLIO 2026</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <span class="eyebrow">About Me</span>
+    <h2 class="heading-lg">Detail-Oriented, People-Focused, Results-Driven</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm Rita Idhoko, a detail-oriented Digital Operations Professional with over seven years of experience across education, administration, and project coordination. I combine strong administrative precision with creative design skills — helping organizations stay organized while also looking good doing it.</p>
+        <p>I hold a Postgraduate Diploma in Education (Distinction) and a B.Sc. in Microbiology, giving me sharp analytical thinking alongside genuine care for the people I support. Alongside my administrative work, I've spent the past year building hands-on design experience in Canva — creating flyers, social content, worksheets, and brand materials for real organizations.</p>
+      </div>
+      <div class="stat-list">
+        <div class="stat-card"><span class="stat-num">7+</span><span class="stat-label">Years Experience</span></div>
+        <div class="stat-card"><span class="stat-num">PGDE</span><span class="stat-label">Distinction</span></div>
+        <div class="stat-card"><span class="stat-num">B.Sc.</span><span class="stat-label">Microbiology</span></div>
+        <div class="stat-card"><span class="stat-num">1yr+</span><span class="stat-label">Canva Design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <span class="eyebrow">Services</span>
+    <h2 class="heading-lg">What I Offer</h2>
+    <div class="card-grid cols-4">
+      <div class="info-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <h3>Administrative Support</h3>
+        <ul>
+          <li>Calendar & Email Management</li>
+          <li>Document Preparation</li>
+          <li>Record Keeping</li>
+          <li>Meeting Coordination</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"></path><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"></path></svg>
+        </div>
+        <h3>Data Management</h3>
+        <ul>
+          <li>Data Entry & Cleaning</li>
+          <li>Spreadsheet Management</li>
+          <li>Database Updating</li>
+          <li>Internet Research</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-7a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h8z"></path></svg>
+        </div>
+        <h3>Education & Content</h3>
+        <ul>
+          <li>Curriculum Development</li>
+          <li>Lesson Planning</li>
+          <li>Learning Resources</li>
+          <li>Educational Documentation</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 4.6L18 8l-4.1 1.4L12 14l-1.9-4.6L6 8l4.1-1.4z"></path><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"></path></svg>
+        </div>
+        <h3>Creative & Digital</h3>
+        <ul>
+          <li>Canva Design</li>
+          <li>Social Media Graphics</li>
+          <li>AI Prompt Writing</li>
+          <li>Presentation Development</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO: Print & Social -->
+<section class="section dark" id="portfolio">
+  <div class="decor-circle" style="width:340px; height:340px; top:-140px; left:-120px;"></div>
+  <div class="section-inner">
+    <span class="eyebrow on-dark">Design Portfolio</span>
+    <h2 class="heading-lg">Selected Design Work — Print & Social</h2>
+    <p class="section-desc">Church event flyers and social graphics designed in Canva for ROHFAC International.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-caption="Event Flyer Design" data-img="assets/event-flyer-double-honour.jpg">
+        <div class="img-box">
+          <img src="assets/event-flyer-double-honour.jpg" alt="Event Flyer Design — ROHFAC International, Hello April Double Honour">
+        </div>
+        <div class="gallery-caption">Event Flyer Design</div>
+      </div>
+      <div class="gallery-item" data-caption="Worksheet Design" data-img="assets/worksheet-sunday-service.jpg">
+        <div class="img-box">
+          <img src="assets/worksheet-sunday-service.jpg" alt="Worksheet Design — ROHFAC International, Sunday Service flyer">
+        </div>
+        <div class="gallery-caption">Worksheet Design</div>
+      </div>
+      <div class="gallery-item" data-caption="Poster Design" data-img="assets/poster-power-glory.jpg">
+        <div class="img-box">
+          <img src="assets/poster-power-glory.jpg" alt="Poster Design — ROHFAC International, 2026 Power and Glory">
+        </div>
+        <div class="gallery-caption">Poster Design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO: Infographics & Branding -->
+<section class="section dark">
+  <div class="decor-circle" style="width:300px; height:300px; bottom:-120px; right:-100px;"></div>
+  <div class="section-inner">
+    <span class="eyebrow on-dark">Design Portfolio</span>
+    <h2 class="heading-lg">Selected Design Work — Infographics & Branding</h2>
+    <p class="section-desc">Informational and celebratory graphics built for clarity, warmth, and shareability.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-caption="Infographic Design" data-img="assets/infographic-angels-assignment.jpg">
+        <div class="img-box"><img src="assets/infographic-angels-assignment.jpg" alt="Infographic Design — Angels on Assignment"></div>
+        <div class="gallery-caption">Infographic Design</div>
+      </div>
+      <div class="gallery-item" data-caption="Women's Day Graphic — source file not provided">
+        <div class="img-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></div>
+        <div class="gallery-caption">Women's Day Graphic</div>
+      </div>
+      <div class="gallery-item" data-caption="Brand Identity Package — source file not provided">
+        <div class="img-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></div>
+        <div class="gallery-caption">Brand Identity Package</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO: Her Steady Path -->
+<section class="section dark">
+  <div class="decor-circle" style="width:320px; height:320px; top:-100px; right:-140px;"></div>
+  <div class="section-inner">
+    <span class="eyebrow on-dark">Design Portfolio</span>
+    <h2 class="heading-lg">Volunteer Design Work — Her Steady Path</h2>
+    <p class="section-desc">Social media content designed as a volunteer for Her Steady Path, a personal-development brand.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-caption="Career & Skills Lab Post" data-img="assets/career-skills-lab.jpg">
+        <div class="img-box"><img src="assets/career-skills-lab.jpg" alt="Career & Skills Lab Post — Her Steady Path"></div>
+        <div class="gallery-caption">Career & Skills Lab Post</div>
+      </div>
+      <div class="gallery-item" data-caption="The Reset Room Post" data-img="assets/reset-room-post.jpg">
+        <div class="img-box"><img src="assets/reset-room-post.jpg" alt="The Reset Room Post — Her Steady Path, We Are Back announcement"></div>
+        <div class="gallery-caption">The Reset Room Post</div>
+      </div>
+      <div class="gallery-item" data-caption="Volunteer Recruitment Post" data-img="assets/volunteer-recruitment.jpg">
+        <div class="img-box"><img src="assets/volunteer-recruitment.jpg" alt="Volunteer Recruitment Post — Her Steady Path"></div>
+        <div class="gallery-caption">Volunteer Recruitment Post</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLISHED RESOURCES -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Author & Content Creator</span>
+    <h2 class="heading-lg">Published Educational Resources</h2>
+    <p class="section-desc">Self-authored, illustrated, and formatted digital products sold to parents and educators.</p>
+    <div class="card-grid">
+      <div class="gallery-item" data-caption="Teach Your Child to Read at Home in 30 Days" data-img="assets/book-teach-read.jpg" style="cursor:pointer;">
+        <div class="img-box" style="aspect-ratio:3/4;"><img src="assets/book-teach-read.jpg" alt="Teach Your Child to Read at Home in 30 Days — book cover"></div>
+        <div style="padding:20px 20px 4px;">
+          <h3 style="font-size:1.05rem; color:var(--navy); margin-bottom:10px;">Teach Your Child to Read at Home in 30 Days</h3>
+          <p style="font-size:0.9rem; color:var(--body-gray); line-height:1.6; padding-bottom:18px;">A step-by-step guide for parents of children ages 3–7, with daily 15–20 minute lessons covering letter sounds through short stories.</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-caption="Essay Writing Masterclass for Kids" data-img="assets/book-essay-writing.jpg" style="cursor:pointer;">
+        <div class="img-box" style="aspect-ratio:3/4;"><img src="assets/book-essay-writing.jpg" alt="Essay Writing Masterclass for Kids — book promo image"></div>
+        <div style="padding:20px 20px 4px;">
+          <h3 style="font-size:1.05rem; color:var(--navy); margin-bottom:10px;">Essay Writing Masterclass for Kids</h3>
+          <p style="font-size:0.9rem; color:var(--body-gray); line-height:1.6; padding-bottom:18px;">A 30-page workbook with 20 model essays and 10 interactive practice worksheets teaching the full essay-writing process.</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-caption="Classroom Management Made Easy" data-img="assets/book-classroom-management.jpg" style="cursor:pointer;">
+        <div class="img-box" style="aspect-ratio:3/4;"><img src="assets/book-classroom-management.jpg" alt="Classroom Management Made Easy — book cover"></div>
+        <div style="padding:20px 20px 4px;">
+          <h3 style="font-size:1.05rem; color:var(--navy); margin-bottom:10px;">Classroom Management Made Easy</h3>
+          <p style="font-size:0.9rem; color:var(--body-gray); line-height:1.6; padding-bottom:18px;">A practical guide for educators covering behaviour strategies, classroom procedures, and ready-to-use templates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT 1 -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <span class="eyebrow">Featured Project 1</span>
+    <div class="project-head">
+      <div class="icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-7a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h8z"></path></svg>
+      </div>
+      <h2>Curriculum Design & Educational Planning</h2>
+    </div>
+    <p class="section-desc">Developed and reviewed schemes of work and individual learner plans aligned with educational standards for the Early Years section.</p>
+    <div class="two-col">
+      <div class="doc-preview">
+        <span class="doc-title">SCHEME REVIEW REPORT</span>
+        <span style="color:var(--teal); font-size:0.8rem;">Early Years Section — Step Up Policy Alignment</span>
+        <img class="doc-snapshot" src="assets/doc-scheme-review.png" alt="Scheme Review Report — Early Years Section" data-caption="Scheme Review Report — Early Years Section" data-img="assets/doc-scheme-review.png">
+        <p class="doc-note">Actual document · click to view full size</p>
+      </div>
+      <div class="doc-preview">
+        <span class="doc-title">PUPIL PLACEMENT LETTER</span>
+        <span style="color:var(--teal); font-size:0.8rem;">Individual Learner Review — Pre-Nursery</span>
+        <img class="doc-snapshot" src="assets/doc-kachi-letter.png" alt="Pupil retention and placement letter" data-caption="Pupil Placement Letter — Individual Learner Review" data-img="assets/doc-kachi-letter.png">
+        <p class="doc-note">Actual document · click to view full size</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT 2 -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Featured Project 2</span>
+    <div class="project-head">
+      <div class="icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      </div>
+      <h2>School Administration & Operations Support</h2>
+    </div>
+    <p class="section-desc">As Head of Early Years, wrote the recurring reports that kept leadership, staff, and parents aligned every term.</p>
+    <div class="two-col">
+      <div class="plain-card">
+        <h4>Reports I Authored</h4>
+        <ul>
+          <li>Weekly class-by-class progress reports (4 classes)</li>
+          <li>Termly PTA report with parent guidance notes</li>
+          <li>Curriculum scheme review & compliance report</li>
+          <li>Staff and attendance coordination records</li>
+        </ul>
+      </div>
+      <div class="plain-card">
+        <h4>Results</h4>
+        <ul>
+          <li>Improved documentation accuracy and consistency</li>
+          <li>Clear, structured parent communication each term</li>
+          <li>Confirmed curriculum alignment with school policy</li>
+          <li>Freed up teaching staff to focus on students, not paperwork</li>
+        </ul>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="doc-preview">
+        <span class="doc-title">EARLY YEARS WEEKLY REPORT</span>
+        <span style="color:var(--teal); font-size:0.8rem;">Week 10 — Class-by-class progress</span>
+        <img class="doc-snapshot" src="assets/doc-weekly-report.png" alt="Early Years Weekly Report — Week 10" data-caption="Early Years Weekly Report — Week 10" data-img="assets/doc-weekly-report.png">
+        <p class="doc-note">Actual document · click to view full size</p>
+      </div>
+      <div class="doc-preview">
+        <span class="doc-title">PTA REPORT</span>
+        <span style="color:var(--teal); font-size:0.8rem;">Early Years Section — Termly parent guidance</span>
+        <img class="doc-snapshot" src="assets/doc-pta-report.png" alt="Early Years PTA Report" data-caption="Early Years PTA Report" data-img="assets/doc-pta-report.png">
+        <p class="doc-note">Actual document · click to view full size</p>
+      </div>
+    </div>
+    <div class="strip">
+      <div>
+        <span class="strip-label">Environment</span>
+        <p>Fast-paced Early Years section • 4 classes, 35+ pupils, multi-stakeholder coordination</p>
+      </div>
+      <div>
+        <span class="strip-label">Impact</span>
+        <p>A reliable reporting rhythm that leadership and parents could count on every week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT 3 -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Featured Project 3</span>
+    <div class="project-head">
+      <div class="icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 4.6L18 8l-4.1 1.4L12 14l-1.9-4.6L6 8l4.1-1.4z"></path><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"></path></svg>
+      </div>
+      <h2>AI-Assisted Content Development</h2>
+    </div>
+    <p class="section-desc">Leveraged AI tools to produce professional educational and business content while maintaining originality, clarity, and quality.</p>
+    <div class="two-col">
+      <div class="plain-card">
+        <h4>Deliverables</h4>
+        <ul>
+          <li>LinkedIn content</li>
+          <li>Business proposals</li>
+          <li>Lesson plans & training materials</li>
+          <li>Reports & professional documents</li>
+          <li>Portfolio development</li>
+        </ul>
+      </div>
+      <div class="plain-card">
+        <h4>Tools</h4>
+        <ul>
+          <li>ChatGPT</li>
+          <li>Canva</li>
+          <li>Microsoft Office</li>
+          <li>Google Workspace</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip">
+      <div>
+        <span class="strip-label">Focus</span>
+        <p>Clarity • Originality • Consistency</p>
+      </div>
+      <div>
+        <span class="strip-label">Value Delivered</span>
+        <p>Reduced content development time while maintaining high-quality, tailored outputs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT 4 -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Featured Project 4</span>
+    <div class="project-head">
+      <div class="icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"></polyline><polyline points="14 6 21 6 21 13"></polyline></svg>
+      </div>
+      <h2>Strategic Planning & Executive Reporting</h2>
+    </div>
+    <p class="section-desc">Prepared an executive summary translating enrolment data into clear goals, timelines, and growth projections for leadership.</p>
+    <div class="two-col">
+      <div class="doc-preview">
+        <span class="doc-title">EXECUTIVE SUMMARY — PAGE 1</span>
+        <span style="font-size:0.78rem;">Strategic Planning Report — Early Years Section</span>
+        <img class="doc-snapshot" src="assets/doc-executive-summary-1.png" alt="Executive Summary — page 1" data-caption="Executive Summary — Page 1" data-img="assets/doc-executive-summary-1.png">
+        <p class="doc-note">Actual document · click to view full size</p>
+      </div>
+      <div class="doc-preview">
+        <span class="doc-title">EXECUTIVE SUMMARY — PAGE 2</span>
+        <span style="font-size:0.78rem;">Strategic Goals, Projections & Summary</span>
+        <img class="doc-snapshot" src="assets/doc-executive-summary-2.png" alt="Executive Summary — page 2" data-caption="Executive Summary — Page 2" data-img="assets/doc-executive-summary-2.png">
+        <p class="doc-note">Actual document · click to view full size</p>
+      </div>
+    </div>
+    <div class="plain-card" style="margin-top:22px;">
+      <h4>Report Highlights</h4>
+      <ul>
+        <li>Full enrolment breakdown across 4 class levels (42 pupils total)</li>
+        <li>9 strategic goals, each paired with a concrete improvement strategy</li>
+        <li>Timeline and projected impact mapped for every goal</li>
+        <li>Enhanced parental engagement projected to lift learning outcomes 10%</li>
+        <li>Differentiated, ability-based instruction projected to lift individual learning 15%</li>
+        <li>Overall enrolment growth projected at 12–20% for the next session</li>
+      </ul>
+    </div>
+    <div class="strip">
+      <div>
+        <span class="strip-label">Tools Used</span>
+        <p>Microsoft Word • Data Analysis • Strategic Planning</p>
+      </div>
+      <div>
+        <span class="strip-label">Projected Outcome</span>
+        <p>Enrolment projected to grow 12–20%, from 42 to an estimated 47–50 pupils.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <span class="eyebrow">Skills & Technology</span>
+    <h2 class="heading-lg">Skills & Technology</h2>
+    <div class="skills-grid">
+      <div class="plain-card">
+        <h4 style="color:var(--navy);">Core Skills</h4>
+        <ul class="skills-two">
+          <li>Administrative Support</li>
+          <li>Data Entry & Verification</li>
+          <li>Documentation & Research</li>
+          <li>Communication</li>
+          <li>Organization</li>
+          <li>Problem Solving</li>
+          <li>Time Management</li>
+          <li>Team Collaboration</li>
+          <li>Educational Leadership</li>
+          <li>Customer Service</li>
+        </ul>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="tools-card">
+          <h4>Software & Tools</h4>
+          <ul>
+            <li>Microsoft Excel & Word</li>
+            <li>Microsoft PowerPoint</li>
+            <li>Google Docs / Sheets / Drive</li>
+            <li>Canva • ChatGPT & AI Tools</li>
+            <li>Zoom • Gmail</li>
+          </ul>
+        </div>
+        <div class="doc-preview" style="min-height:auto;">
+          <span class="doc-title" style="font-size:0.85rem;">Task 1 — Client Invoice Tracker</span>
+          <img class="doc-snapshot" src="assets/doc-invoice-tracker.png" alt="Excel skills test — Client Invoice Tracker" data-caption="Excel Skills Test — Client Invoice Tracker" data-img="assets/doc-invoice-tracker.png">
+          <p class="doc-note">Actual spreadsheet · formulas, COUNTIF & IF logic · click to view full size</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <span class="eyebrow">Education & Professional Development</span>
+    <h2 class="heading-lg">Education & Growth</h2>
+    <div class="edu-cards">
+      <div class="edu-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M9 14l-2 8 5-3 5 3-2-8"></path></svg></div>
+        <div>
+          <h4>Postgraduate Diploma in Education (PGDE)</h4>
+          <p>Distinction • Ahmadu Bello University</p>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-7a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h8z"></path></svg></div>
+        <div>
+          <h4>Bachelor of Science (B.Sc.)</h4>
+          <p>Microbiology • University of Abuja</p>
+        </div>
+      </div>
+    </div>
+    <h3 style="font-size:1.1rem; margin-top:40px; color:var(--teal); font-family:'Inter',sans-serif; font-weight:700;">Professional Development</h3>
+    <div class="tag-grid">
+      <div class="tag-pill"><span class="dot"></span>Leadership Development Training</div>
+      <div class="tag-pill"><span class="dot"></span>AI & Digital Productivity Training</div>
+      <div class="tag-pill"><span class="dot"></span>Educational Administration</div>
+      <div class="tag-pill"><span class="dot"></span>Microsoft Office Productivity</div>
+      <div class="tag-pill"><span class="dot"></span>Classroom Leadership</div>
+      <div class="tag-pill"><span class="dot"></span>Curriculum Development</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WORK WITH ME -->
+<section class="section dark">
+  <div class="decor-circle" style="width:360px; height:360px; top:-140px; right:-100px;"></div>
+  <div class="decor-circle" style="width:260px; height:260px; bottom:-120px; right:-80px; opacity:0.3;"></div>
+  <div class="section-inner">
+    <span class="eyebrow on-dark">What Sets Me Apart</span>
+    <h2 class="heading-lg">Why Work With Me?</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle></svg></div>
+        Seven years of professional experience
+      </div>
+      <div class="why-item">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle></svg></div>
+        Strong administrative and organizational skills
+      </div>
+      <div class="why-item">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.7 6.6L22 9.3l-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-7.1L2 9.3l7.3-0.7z"></path></svg></div>
+        Exceptional attention to detail
+      </div>
+      <div class="why-item">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"></polyline><polyline points="14 6 21 6 21 13"></polyline></svg></div>
+        Fast learner with excellent adaptability
+      </div>
+      <div class="why-item">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+        Excellent written and verbal communication
+      </div>
+      <div class="why-item">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle></svg></div>
+        Committed to delivering quality work on time
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section dark" id="contact">
+  <div class="decor-circle" style="width:400px; height:400px; top:-160px; left:-160px;"></div>
+  <div class="decor-circle" style="width:280px; height:280px; bottom:-140px; right:-100px; opacity:0.35;"></div>
+  <div class="section-inner">
+    <h2 class="heading-lg" style="font-size: clamp(2rem, 7vw, 3rem);">Ready to Work Together?</h2>
+    <p class="section-desc" style="margin-top:20px;">I'm available for opportunities in:</p>
+    <ul class="contact-list">
+      <li><span class="dot"></span>Virtual Assistance</li>
+      <li><span class="dot"></span>Administrative Support</li>
+      <li><span class="dot"></span>Data Entry</li>
+      <li><span class="dot"></span>Graphic & Social Media Design</li>
+      <li><span class="dot"></span>Educational Content Development</li>
+      <li><span class="dot"></span>AI-Assisted Content & Research</li>
+    </ul>
+    <div class="contact-meta">
+      <a href="mailto:alexrita081@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 6l10 7 10-7"></path></svg>alexrita081@gmail.com</a>
+      <a href="https://linkedin.com/in/rita-idhoko" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle><path d="M10 9v12"></path><path d="M10 13a4 4 0 0 1 8 0v8"></path></svg>linkedin.com/in/rita-idhoko</a>
+      <span style="display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Abuja, Nigeria</span>
+    </div>
+    <p class="quote">"Let's work together to improve productivity, organization, and operational excellence."</p>
+  </div>
+</section>
+
+<!-- BOOKING / SCHEDULING -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">Book Directly</span>
+    <h2 class="heading-lg">How Booking a Session Works</h2>
+    <p class="section-desc">A simple three-step scheduling flow for a Discovery Call — pick a time, get confirmed, and I'll see you then.</p>
+    <div class="card-grid">
+      <div class="gallery-item" data-caption="Step 1 — Browse available event types" data-img="assets/booking-event-types.jpg">
+        <div class="img-box" style="aspect-ratio:16/9;"><img src="assets/booking-event-types.jpg" alt="Scheduling dashboard showing available event types"></div>
+        <div style="padding:18px 20px 22px;">
+          <span class="eyebrow" style="margin-bottom:6px;">Step 1</span>
+          <h3 style="font-size:1rem; color:var(--navy);">Browse Event Types</h3>
+        </div>
+      </div>
+      <div class="gallery-item" data-caption="Step 2 — Choose a Discovery Call slot" data-img="assets/booking-discovery-call.jpg">
+        <div class="img-box" style="aspect-ratio:16/9;"><img src="assets/booking-discovery-call.jpg" alt="Discovery Call event details with duration and availability"></div>
+        <div style="padding:18px 20px 22px;">
+          <span class="eyebrow" style="margin-bottom:6px;">Step 2</span>
+          <h3 style="font-size:1rem; color:var(--navy);">Pick a Discovery Call Time</h3>
+        </div>
+      </div>
+      <div class="gallery-item" data-caption="Step 3 — Get instantly confirmed" data-img="assets/booking-confirmation.jpg">
+        <div class="img-box" style="aspect-ratio:16/9;"><img src="assets/booking-confirmation.jpg" alt="Booking confirmation screen for Discovery Call"></div>
+        <div style="padding:18px 20px 22px;">
+          <span class="eyebrow" style="margin-bottom:6px;">Step 3</span>
+          <h3 style="font-size:1rem; color:var(--navy);">Get Instantly Confirmed</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<!-- <section class="form-section">
+  <div class="section-inner">
+    <span class="eyebrow">Get In Touch</span>
+    <h2 class="heading-lg">Book a Session</h2>
+    <p class="section-desc">Prefer a form? Fill this out and I'll get back to you as soon as possible.</p>
+    <div class="form-wrap">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdX8gziaBQQH1j3-olZmzlaXqsKXEJSESmF0IfkoHBgEb4d4g/viewform?embedded=true" title="Contact form">Loading form…</iframe>
+    </div>
+  </div>
+</section> -->
+
+<footer class="site-footer">
+  Rita Idhoko &nbsp;•&nbsp; Creative VA & Design Portfolio &nbsp;•&nbsp; © 2026
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <div class="lightbox-box" id="lightboxBox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" style="display:none;">
+    <svg id="lightboxIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+    <p class="lightbox-caption" id="lightboxCaption">Image placeholder</p>
+    <p class="lightbox-hint" id="lightboxHint">Replace this box with the final image · click outside or scroll to close</p>
+  </div>
+</div>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Lightbox
+  const overlay = document.getElementById('lightboxOverlay');
+  const box = document.getElementById('lightboxBox');
+  const caption = document.getElementById('lightboxCaption');
+  const hint = document.getElementById('lightboxHint');
+  const closeBtn = document.getElementById('lightboxClose');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbIcon = document.getElementById('lightboxIcon');
+
+  document.querySelectorAll('.gallery-item, .doc-snapshot').forEach(item => {
+    item.addEventListener('click', () => {
+      const cap = item.dataset.caption || item.getAttribute('alt') || 'Image';
+      const src = item.dataset.img || (item.tagName === 'IMG' ? item.getAttribute('src') : null);
+      caption.textContent = cap;
+      if (src){
+        lbImg.src = src;
+        lbImg.style.display = 'block';
+        lbIcon.style.display = 'none';
+        hint.textContent = 'Click outside or scroll to close';
+        box.classList.add('has-img');
+      } else {
+        lbImg.style.display = 'none';
+        lbIcon.style.display = 'block';
+        hint.textContent = 'Replace this box with the final image · click outside or scroll to close';
+        box.classList.remove('has-img');
+      }
+      overlay.classList.add('active');
+    });
+  });
+
+  function closeLightbox(){ overlay.classList.remove('active'); }
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLightbox(); // click on free space, not the box
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  window.addEventListener('scroll', () => {
+    if (overlay.classList.contains('active')) closeLightbox();
+  }, { passive: true });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>
